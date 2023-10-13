@@ -14,7 +14,7 @@ struct RootView: View {
     
     var body: some View {
         VStack(alignment: .center){
-            if(_auth.LoggedIn)
+            if(_auth.CheckIfLoggedIn())
             {
                 TabView{
                     ZStack{

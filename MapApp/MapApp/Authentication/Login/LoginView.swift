@@ -24,9 +24,15 @@ struct LoginView: View {
             
             Button(action:{
                 Task{
-                    let result = await _auth.Login(user_name: user_name, password: password)
-                    if (result == false) {
-                        print("Error logging in")
+                    do{
+                        let result = try await _auth.Login(user_name: user_name, password: password)
+                        if (result == false) {
+                            print("Error logging in")
+                        }
+                    }
+                    catch
+                    {
+                        print(error.localizedDescription)
                     }
                 }
             })
