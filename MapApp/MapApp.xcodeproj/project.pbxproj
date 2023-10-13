@@ -19,6 +19,7 @@
 		9A0CD1E02AD86E21000382A4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CD1DF2AD86E21000382A4 /* Keys.swift */; };
 		9A0CD1E22AD8702B000382A4 /* LoginRegisterToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CD1E12AD8702B000382A4 /* LoginRegisterToggleButton.swift */; };
 		9A0D254E2AD87B92002404A6 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D254D2AD87B92002404A6 /* CustomColors.swift */; };
+		9AB501C52AD8C29F00B0C311 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB501C42AD8C29F00B0C311 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9A0CD1DF2AD86E21000382A4 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		9A0CD1E12AD8702B000382A4 /* LoginRegisterToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterToggleButton.swift; sourceTree = "<group>"; };
 		9A0D254D2AD87B92002404A6 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		9AB501C42AD8C29F00B0C311 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +129,9 @@
 		9A0CD1D72AD866AB000382A4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9A0CD1D82AD866D3000382A4 /* AccountService.swift */,
 				9A0CD1DA2AD8670E000382A4 /* Protocols.swift */,
+				9AB501C32AD8C28500B0C311 /* Account */,
+				9AB501C22AD8C27E00B0C311 /* Location */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -147,6 +150,22 @@
 				9A0D254D2AD87B92002404A6 /* CustomColors.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9AB501C22AD8C27E00B0C311 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				9AB501C42AD8C29F00B0C311 /* Location.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		9AB501C32AD8C28500B0C311 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				9A0CD1D82AD866D3000382A4 /* AccountService.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A0CD1D32AD865EC000382A4 /* HomeView.swift in Sources */,
+				9AB501C52AD8C29F00B0C311 /* Location.swift in Sources */,
 				9A0CD1E02AD86E21000382A4 /* Keys.swift in Sources */,
 				9A0CD1BF2AD8656F000382A4 /* MapAppApp.swift in Sources */,
 				9A0CD1D52AD865F7000382A4 /* LoginView.swift in Sources */,
@@ -364,6 +384,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need user location to function properly";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need user location to function properly";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -383,10 +405,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -405,6 +428,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need user location to function properly";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need user location to function properly";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -424,10 +449,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
