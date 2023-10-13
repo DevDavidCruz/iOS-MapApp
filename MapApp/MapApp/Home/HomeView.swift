@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import MapKit
+import CoreLocation
+
 
 struct HomeView: View {
+    @State var locationManager: LocationManager?
+    @State var position : MapCameraPosition = .automatic
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Map(position: $position){
+            UserAnnotation()
+        }
+        .onAppear {
+            locationManager = LocationManager()
+            position = .userLocation(fallback: .automatic)
+        }
+        .onDisappear{
+        }
     }
 }
 
