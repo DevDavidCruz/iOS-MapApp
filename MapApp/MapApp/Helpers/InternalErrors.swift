@@ -14,3 +14,10 @@ enum KeychainError : Error{
     case noToken
     case unexpectedTokenData
 }
+
+enum HttpError : Error{
+    case badRequest
+    case unAuthorized
+    case invalidURL
+    case unexpectedError
+}

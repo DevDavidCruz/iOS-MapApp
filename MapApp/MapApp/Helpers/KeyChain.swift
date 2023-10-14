@@ -54,12 +54,12 @@ class KeyChain {
         
     }
     
-    
     static public func StoreToken(token : String) throws{
+        guard let token_data = token.data(using: .utf8) else {throw KeychainError.noToken}
         let store_query = [
             kSecClass : kSecClassKey,
             kSecAttrApplicationTag : token_tag,
-            kSecValueData : token
+            kSecValueData : token_data
             
         ] as CFDictionary
         
@@ -80,5 +80,15 @@ class KeyChain {
         
         let status = SecItemUpdate(update_query, update_value)
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
+    }
+    
+    static public func DeleteToken() throws {
+        let delete_query = [
+            kSecClass : kSecClassKey,
+            kSecAttrApplicationTag : token_tag
+            
+        ] as CFDictionary
+        let status = SecItemDelete(delete_query)
+        guard status == errSecSuccess || status == errSecItemNotFound else { throw KeychainError.unhandledError(status: status)}
     }
 }

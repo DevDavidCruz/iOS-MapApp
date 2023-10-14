@@ -14,7 +14,7 @@ struct RootView: View {
     
     var body: some View {
         VStack(alignment: .center){
-            if(_auth.CheckIfLoggedIn())
+            if(_auth.LoggedIn)
             {
                 TabView{
                     ZStack{
@@ -23,6 +23,13 @@ struct RootView: View {
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
+                    }
+                    ZStack{
+                        SettingsView()
+                    }
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
                     }
                 }
             }
@@ -44,7 +51,7 @@ struct RootView: View {
                     }
                     else if(index == 1)
                     {
-                        //RegisterView()
+                        RegisterView()
                     }
                     Spacer()
                 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct LoginView: View {
     @Environment(\.Auth) private var _auth
     @State private var user_name : String = ""
-    
     @State private var password : String = ""
     var body: some View {
         

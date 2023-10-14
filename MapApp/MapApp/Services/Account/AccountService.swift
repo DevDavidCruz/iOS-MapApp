@@ -8,26 +8,42 @@
 import Foundation
 import SwiftUI
 
+
 public class TestAccountService : Account{
     private init(){}
     
     public static let Shared = TestAccountService()
     
-    static func Register(username: String, email: String, password: String) {
+    static func Register(request : RegisterRequest) async throws -> String{
+        let result = try await Http.Post(url: "http://localhost:8000/", body: request)
+        guard let result = String(data: result, encoding: .utf8) else{
+            throw HttpError.unexpectedError
+        }
+        return result
     }
     
+    /// Login API request.
+    /// In this example the login request returns a Auth Token as string to be used in future API calls
+    /// - Parameters:
+    ///   - email: user account email
+    ///   - password: user account password
+    /// - Returns: auth token as String
     static func Login(email: String, password: String) async throws -> String {
-        // Call login endpoint for api
-        // if endpoint return anything other than statuscode 200
-        // then this method should throw
-        return "token"
+        return "test"
     }
     
-    static func Login(username: String, password: String) async throws->String {
-        // Call login endpoint for api
-        // if endpoint return anything other than statuscode 200
-        // then this method should throw
-        return "token"
+    /// Login API request.
+    /// In this example the login request returns a Auth Token as string to be used in future API calls
+    /// - Parameters:
+    ///   - username: user account username
+    ///   - password: user account password
+    /// - Returns: auth token as String
+    static func Login(request : LoginRequest) async throws->String {
+        let result = try await Http.Post(url: "http://localhost:8000/login", body: request)
+        guard let result = String(data: result, encoding: .utf8) else {
+            throw HttpError.unexpectedError
+        }
+        return result
     }
     
     static func Logout() async throws {
