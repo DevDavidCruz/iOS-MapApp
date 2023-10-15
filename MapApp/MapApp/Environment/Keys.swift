@@ -13,6 +13,7 @@ struct CustomAuthenticationKey : EnvironmentKey{
     static var defaultValue = Authentication()
 }
 
+
 extension EnvironmentValues{
     var Auth : Authentication{
         get{self[CustomAuthenticationKey.self]}
